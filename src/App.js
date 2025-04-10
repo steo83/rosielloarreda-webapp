@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import ChiSiamo from './pages/ChiSiamo';
+import Contatti from './pages/Contatti';
+import Login from './pages/Login';
+import AreaCliente from './pages/AreaCliente';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <Navbar />
+      <main className="flex-grow p-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chisiamo" element={<ChiSiamo />} />
+          <Route path="/contatti" element={<Contatti />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/area-cliente" element={<AreaCliente />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }
